@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from task2.views import index, Templator
 from task4.views import games_view
+from task5.views import sign_up_by_django, sign_up_by_html
 from django.views.generic  import TemplateView
 
 
@@ -27,6 +28,8 @@ urlpatterns = [
     path('func_temp/', index),
     path('platform/', TemplateView.as_view(template_name='fourth_task/platform.html')),
     path('platform/games/', games_view),
-    path('platform/cart/', TemplateView.as_view(template_name='fourth_task/cart.html'))
+    path('platform/cart/', TemplateView.as_view(template_name='fourth_task/cart.html')),
+    path('django_sign_up/', sign_up_by_django, name='django_sign_up'),
+    path('', sign_up_by_html , name='sign_up_by_html')
 
 ]
