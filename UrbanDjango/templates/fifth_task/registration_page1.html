@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Регистрация</title>
+    <title>Title</title>
 </head>
 <body>
     <h1>Регистрация</h1>
@@ -17,16 +17,16 @@
     <form method="post">
         {% csrf_token %}
         <label for="username">Введите логин:</label>
-        {{ form.username }}<br>
+        <input type="text" id="username" name="username" maxlength="30" required><br>
 
         <label for="password">Введите пароль:</label>
-        {{ form.password }}<br>
+        <input type="password" id="password" name="password" minlength="8" required><br>
 
         <label for="repeat_password">Повторите пароль:</label>
-        {{ form.repeat_password }}<br>
+        <input type="password" id="repeat_password" name="repeat_password" minlength="8" required><br>
 
         <label for="age">Введите свой возраст:</label>
-        {{ form.age }}<br>
+        <input type="number" id="age" name="age" maxlength="3" required><br>
 
         <button type="submit">Зарегистрироваться</button>
     </form>

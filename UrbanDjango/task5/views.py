@@ -24,9 +24,13 @@ def sign_up_by_django(request):
                 info['error'] = 'Пароли не совпадают'
             elif age < 18:
                 info['error'] = 'Вы должны быть старше 18'
+            elif age > 120:  # Добавлена проверка на верхний предел
+                info['error'] = 'Ваш возраст не может быть больше 120 лет'
             else:
                 return render(request, 'fifth_task/registration_page.html',
                               {'message': f'Приветствуем, {username}!'})
+        else:
+            info['form'] = form
     info['form'] = form
     return render(request, 'fifth_task/registration_page.html', info)
 
@@ -46,9 +50,11 @@ def sign_up_by_html(request):
             info['error'] = 'Пароли не совпадают'
         elif age < 18:
             info['error'] = 'Вы должны быть старше 18'
+        elif age > 120:  # Добавлена проверка на верхний предел
+            info['error'] = 'Ваш возраст не может быть больше 120 лет'
         else:
             info['message'] = f'Приветствуем, {username}!'
 
-            return render(request, 'fifth_task/registration_page.html', info)
+            return render(request, 'fifth_task/registration_page1.html', info)
 
-    return render(request, 'fifth_task/registration_page.html', info)
+    return render(request, 'fifth_task/registration_page1.html', info)
